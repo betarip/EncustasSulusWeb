@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('encuestados', 'EncuestadoController');
+
+//Route::get('encuestados', 'Encuestado');
