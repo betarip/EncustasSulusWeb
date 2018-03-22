@@ -24,7 +24,7 @@ class EncuestadoController extends Controller
         $encuestados = Encuestado::all();
         return response(array(
                 'error' => false,
-                'products' =>$encuestados->toArray(),
+                'encuestados' =>$encuestados->toArray(),
                ),200);     
     }
 

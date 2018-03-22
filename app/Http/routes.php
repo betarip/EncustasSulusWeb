@@ -21,6 +21,8 @@ Route::get('/home', [
 ]);
 
 Route::resource('encuestados', 'EncuestadoController');
+//Route::resource('encuestador', 'EncuestadorController');
+
 
 //Route::get('encuestados', 'Encuestado');
 
@@ -51,13 +53,20 @@ Route::group(['middleware'=> 'auth'], function(){
         'as'    =>  'home'
     ]);
 
+        
+    Route::get('acceso/registro', [
+        'uses'  =>  'Auth\AuthController@getRegister',
+        'as'    =>  'registro'
+        ]);
+
+    Route::post('acceso/registro', 'Auth\AuthController@postRegister');
+
+    Route::post('acceso/registro', 'Auth\AuthController@postRegister');
+        
+    Route::get('crear-encuestador', [
+        'uses'  =>  'EncuestadorController@create',
+        'as'    =>  'crearEncuestador']);
     
-Route::get('acceso/registro', [
-    'uses'  =>  'Auth\AuthController@getRegister',
-    'as'    =>  'registro'
-    ]);
-
-Route::post('acceso/registro', 'Auth\AuthController@postRegister');
-
- 
+        Route::resource('encuestador', 'EncuestadorController');
+        
 });

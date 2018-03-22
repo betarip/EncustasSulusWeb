@@ -17,7 +17,11 @@ class EncuestadorController extends Controller
      */
     public function index()
     {
-        //
+        $encuestados = Encuestador::all();
+        return response(array(
+                'error' => false,
+                'encuestados' =>$encuestados->toArray(),
+               ),200);     
     }
 
     /**
@@ -28,6 +32,7 @@ class EncuestadorController extends Controller
     public function create()
     {
         //
+        return view('Encuestador.crear');
     }
 
     /**
@@ -38,7 +43,19 @@ class EncuestadorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $this->validate($request, [
+           'nombre' => 'required',
+           'apellidoPaterno' => 'required',
+           'apellidoMaterno' => 'required',
+       ]);
+       $encuestador = new Encuestador;
+       $encuestador->nombre = $request->input('nombre');
+       $encuestador->app1 = $request->input('apellidoPaterno');
+       $encuestador->app2 = $request->input('apellidoMaterno');
+       $encuestador->password = $request->input('nombre');
+       $encuestador->save();
+
+       return redirect('/encuestador/create')->with('success', 'Encuestador Creado');
     }
 
     /**
