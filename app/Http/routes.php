@@ -15,6 +15,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('encuestados', 'EncuestadoController');
+//Route::resource('encuestados', 'EncuestadoController');
 
 //Route::get('encuestados', 'Encuestado');
+
+// Authentication routes...
+
+/*
+Route::get('acceso/login', 'Auth\AuthController@getLogin');
+Route::post('acceso/login', 'Auth\AuthController@postLogin');
+Route::get('acceso/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('acceso/registro', 'Auth\AuthController@getRegister');
+Route::post('acceso/registro', 'Auth\AuthController@postRegister');
+
+// Password reset link request routes...
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+// Password reset routes...
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+*/
