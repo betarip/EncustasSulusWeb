@@ -12,12 +12,14 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    'login_title' => 'Login',
-    'login_button' => 'Login',
-    'register_title' => 'Register',
-    'register_button' => 'Register',
-    'remember' => 'Remember me',
-    'failed' => 'These credentials do not match our records.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'login_title' => 'Acceso',
+    'login_button' => 'Acceso',
+    'register_title' => 'Registro',
+    'register_button' => 'Registro',
+    'forgot_link' => 'Olvide mi contraseña',
+    'login_action' => 'Acceso',
+    'remember' => 'Recordar',
+    'failed' => 'No coincide el e-mail y la contraseña',
+    'throttle' => 'Muchos intentos de acceso. Por favor intentar en :seconds segundos',
 
 ];

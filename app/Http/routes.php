@@ -15,27 +15,49 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-//Route::resource('encuestados', 'EncuestadoController');
+Route::get('/home', [
+    'uses'  =>  'HomeController@index',
+    'as'    =>  'home'
+]);
+
+Route::resource('encuestados', 'EncuestadoController');
 
 //Route::get('encuestados', 'Encuestado');
 
 // Authentication routes...
 
-/*
-Route::get('acceso/login', 'Auth\AuthController@getLogin');
+
+Route::get('acceso/login', [
+    'uses'  =>  'Auth\AuthController@getLogin',
+    'as'    =>  'login'
+    ]);
 Route::post('acceso/login', 'Auth\AuthController@postLogin');
-Route::get('acceso/logout', 'Auth\AuthController@getLogout');
+Route::get('acceso/logout', [
+    'uses'  =>  'Auth\AuthController@getLogout',
+    'as'    =>  'logout'
+    ]);
 
 // Registration routes...
-Route::get('acceso/registro', 'Auth\AuthController@getRegister');
+
+
+Route::group(['middleware'=> 'auth'], function(){
+    Route::get('account', function(){
+        return view('account');
+    
+    });
+
+    Route::get('/home', [
+        'uses'  =>  'HomeController@index',
+        'as'    =>  'home'
+    ]);
+
+    
+Route::get('acceso/registro', [
+    'uses'  =>  'Auth\AuthController@getRegister',
+    'as'    =>  'registro'
+    ]);
+
 Route::post('acceso/registro', 'Auth\AuthController@postRegister');
 
-// Password reset link request routes...
-Route::get('password/email', 'Auth\PasswordController@getEmail');
-Route::post('password/email', 'Auth\PasswordController@postEmail');
-
-// Password reset routes...
-Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-Route::post('password/reset', 'Auth\PasswordController@postReset');
-
-*/
+ 
+});
