@@ -102,4 +102,9 @@ class EncuestadorController extends Controller
     {
         //
     }
+
+
+    public function jsonAll(){
+        
+    }
 }

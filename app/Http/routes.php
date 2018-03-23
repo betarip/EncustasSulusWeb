@@ -21,6 +21,8 @@ Route::get('/home', [
 ]);
 
 Route::resource('encuestados', 'EncuestadoController');
+
+Route::get('municipio/{municipio}', 'municipioController@show');
 //Route::resource('encuestador', 'EncuestadorController');
 
 
@@ -66,7 +68,9 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::get('crear-encuestador', [
         'uses'  =>  'EncuestadorController@create',
         'as'    =>  'crearEncuestador']);
-    
-        Route::resource('encuestador', 'EncuestadorController');
+   
+   
+    Route::get('encuestadorJson', 'EncuestadorController@jsonAll');
+    Route::resource('encuestador', 'EncuestadorController');
         
 });
