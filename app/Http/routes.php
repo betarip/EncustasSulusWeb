@@ -68,8 +68,22 @@ Route::group(['middleware'=> 'auth'], function(){
     Route::get('crear-encuestador', [
         'uses'  =>  'EncuestadorController@create',
         'as'    =>  'crearEncuestador']);
+
+    Route::get('crear-encuestador', [
+        'uses'  =>  'EncuestadorController@create',
+        'as'    =>  'crearEncuestador']);
    
-   
+    Route::get('ver-encuestadores',[
+        'as'    => 'verEncuestador',
+        function () {
+            $Encuestadores = App\Encuestador::orderBy('id_encuestador', 'asc')->get();
+        
+            return view('encuestador.encuestadores', [
+            'Encuestadores' => $Encuestadores
+            ]);
+        }
+    ]);
+
     Route::get('encuestadorJson', 'EncuestadorController@jsonAll');
     Route::resource('encuestador', 'EncuestadorController');
         

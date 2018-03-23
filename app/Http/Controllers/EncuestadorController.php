@@ -47,12 +47,29 @@ class EncuestadorController extends Controller
            'nombre' => 'required',
            'apellidoPaterno' => 'required',
            'apellidoMaterno' => 'required',
+           'telefono' => 'required|numeric',
+           'municipio' => 'required',
+           'cve_elector' => 'required|max:60',
+           'curp' => 'required|size:18',
+           'cp' => 'required|digits:5',
+           'cve_estado' => 'required|numeric',
+           'cve_municipio' => 'required|numeric',
+           'cve_seccion' => 'required|numeric',
        ]);
        $encuestador = new Encuestador;
        $encuestador->nombre = $request->input('nombre');
        $encuestador->app1 = $request->input('apellidoPaterno');
        $encuestador->app2 = $request->input('apellidoMaterno');
-       $encuestador->password = $request->input('nombre');
+       $encuestador->telefono = $request->input('telefono');
+       $encuestador->municipio = $request->input('municipio');
+       $encuestador->cve_elector = $request->input('cve_elector');
+       $encuestador->curp = $request->input('curp');
+       $encuestador->cp = $request->input('cp');
+       $encuestador->cve_estado = $request->input('cve_estado');
+       $encuestador->cve_municipio = $request->input('cve_municipio');
+       $encuestador->cve_seccion = $request->input('cve_seccion');
+
+
        $encuestador->save();
 
        return redirect('/encuestador/create')->with('success', 'Encuestador Creado');

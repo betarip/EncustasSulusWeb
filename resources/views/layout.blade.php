@@ -8,6 +8,37 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
    <!-- <link rel="stylesheet" href="{{asset('css/app.css')}}" > -->
+   <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+              
+                font-weight: 100;
+
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 96px;
+            }
+        </style>
     
 </head>
 <body>
@@ -32,9 +63,12 @@
 						<li></li>
 					@else
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones del Sistema <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{route('registro')}}">Registro</a></li>
+								<li><a href="{{route('home')}}">Panel General Encuestas</a></li>
+								<li><a href="{{route('registro')}}">Registro Administradores</a></li>
+								<li><a href="{{route('crearEncuestador')}}">Registro Encuestadores</a></li>
+								<li><a href="{{route('verEncuestador')}}">Panel Encuestadores</a></li>
 								<li><a href="{{route('logout')}}">Cerrar sesión</a></li>
 							</ul>
 						</li>
